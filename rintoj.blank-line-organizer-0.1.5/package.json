@@ -1,0 +1,89 @@
+{
+	"name": "blank-line-organizer",
+	"displayName": "Blank Line Organizer",
+	"description": "Removes unnecessary blank lines and adds if needed",
+	"version": "0.1.5",
+	"publisher": "rintoj",
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/rintoj/blank-line-organizer.git"
+	},
+	"activationEvents": [
+		"onCommand:blankLine.remove",
+		"*"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "blankLine.process",
+				"title": "Remove blank lines"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "blankLine.process",
+				"title": "Remove blank lines",
+				"key": "ctrl+;",
+				"mac": "cmd+;"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Configuration for blankLine",
+			"properties": {
+				"blankLine.keepOneEmptyLine": {
+					"type": "boolean",
+					"default": true,
+					"description": "If set to true removes all consecutive blank lines, except one."
+				},
+				"blankLine.triggerOnSave": {
+					"type": "boolean",
+					"default": true,
+					"description": "If set to true, the command will be triggered on save."
+				},
+				"blankLine.languageIds": {
+					"type": "array",
+					"default": [
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact",
+						"json",
+						"css",
+						"scss"
+					],
+					"description": "List of languages to be processed"
+				}
+			}
+		}
+	},
+	"keywords": [
+		"Empty Line",
+		"Blank Line",
+		"New Line",
+		"Formatter",
+		"Remover"
+	],
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install"
+	},
+	"devDependencies": {
+		"typescript": "^1.8.5",
+		"vscode": "^0.11.0"
+	},
+	"__metadata": {
+		"id": "765da733-52d6-4ab7-a4e4-df2eb000568c",
+		"publisherId": "acd7e1ba-57e7-4f59-a2df-31d4e742ae74",
+		"publisherDisplayName": "rintoj"
+	}
+}
